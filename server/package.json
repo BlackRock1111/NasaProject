@@ -6,6 +6,8 @@
   "scripts": {
     "test": "jest --detectOpenHandles",
     "test-watch": "jest --watch",
+    "watch": "nodemon src/server.js",
+    "start": "node src/server.js",
     "cluster": "pm2 start src/server.js -i max"
   },
   "keywords": [],
@@ -19,11 +21,12 @@
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "csv-parse": "^5.3.0",
-    "dotenv": "^16.0.1",
+    "dotenv": "^16.0.2",
     "express": "^4.17.3",
-    "mongoose": "^6.5.1",
+    "mongoose": "^6.6.0",
     "morgan": "^1.10.0",
     "nasa-project": "file:..",
+    "nasaproject": "file:..",
     "path": "^0.12.7",
     "pm2": "^5.2.0",
     "superset": "^2.0.1"

@@ -1,6 +1,8 @@
 const http = require('http');
 const mongoose = require('mongoose');
-require('dotenv').config();
+const path = require('path');
+const dotenv = require('dotenv');
+dotenv.config({path:__dirname+'./.env'});
 const {
   app
 } = require("./app")
@@ -10,8 +12,10 @@ const {
 const{loadLaunchData} = require('./models/launches.model');
 
 const port = process.env.PORT || 8000;
+console.log(port);
 
 const MONGO_URL = process.env.MONGO_URL
+console.log(MONGO_URL);
 
 mongoose.connection.on('open', () => {
   console.log("Connected to Mongodb");
@@ -23,7 +27,7 @@ mongoose.connection.on('err', () => {
 
 const server = http.createServer(app); // why use this?
 async function startServer() {
-  await mongoose.connect(MONGO_URL)
+  await mongoose.connect('mongodb+srv://nasa_api_v1:1MUR4WgmVIBOQkOl@cluster0.yggawis.mongodb.net/?retryWrites=true&w=majority');
 
   await loadPlanetsData(); // from planets model
   await loadLaunchData(); // from launches model

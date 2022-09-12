@@ -1,5 +1,5 @@
 {
-  "name": "nasaproject",
+  "name": "nasaProject",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -72,6 +72,7 @@
     "path-type": "^3.0.0",
     "pidtree": "^0.3.1",
     "pify": "^3.0.0",
+    "react-scripts": "^5.0.1",
     "read-pkg": "^3.0.0",
     "regexp.prototype.flags": "^1.4.3",
     "require-directory": "^2.1.1",
@@ -107,9 +108,15 @@
     "yargs-parser": "^21.0.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "npm run build --prefix client && npm start --server",
-    "deploy-cluster": "npm run build --prefix client && npm sun cluster --server"
+    "install-server": "npm install --prefix server",
+    "install-client": "npm install --prefix client",
+    "install": "npm run install-server && npm run install-client",
+    "server": "npm run watch --prefix server",
+    "client": "npm start --prefix client",
+    "watch": "npm run server & npm run client",
+    "deploy": "npm run build --prefix client && npm start --prefix server",
+    "deploy-cluster": "npm run build --prefix client && npm run cluster --prefix server",
+    "test": "npm test --prefix server && npm test --prefix client"
   },
   "author": "",
   "license": "ISC"
